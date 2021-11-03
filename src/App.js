@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./App.css";
 
 function App() {
+  const [nasaData, setNasaData] = useState(/*decide type later*/);
+
+  useEffect(() => {
+    axios.get()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }, [])
+
   return (
     <div className="App">
       <p>
