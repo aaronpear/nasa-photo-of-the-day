@@ -5,6 +5,7 @@ import { NASA_PIC_BASE_URL, API_KEY } from "./constants/index";
 
 import Header from './components/Header';
 import Picoftheday from './components/Picoftheday';
+import Pictext from "./components/Pictext";
 
 function App() {
   const [nasaData, setNasaData] = useState([]);
@@ -12,6 +13,7 @@ function App() {
   useEffect(() => {
     axios.get(`${NASA_PIC_BASE_URL}?api_key=${API_KEY}`)
       .then(response => {
+        console.log(response);
         setNasaData(response.data);
       })
       .catch(error => {
@@ -23,11 +25,13 @@ function App() {
     <div className="App">
       <Header title={nasaData.title} />
       <Picoftheday 
-        copyright={nasaData.copyright} 
-        date={nasaData.date}
-        explanation={nasaData.explanation} 
         hdurl={nasaData.hdurl} 
         url={nasaData.url} 
+      />
+      <Pictext        
+        explanation={nasaData.explanation} 
+        copyright={nasaData.copyright} 
+        date={nasaData.date}
       />
       {/* <p>
         Read through the instructions in the README.md file to build your NASA
