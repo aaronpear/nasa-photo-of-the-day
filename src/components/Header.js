@@ -1,12 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-const Header = props => {
-    const { title } = props;
+const StyledHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    color: white;
+`
+
+const Header = () => {
+    // const { title } = props;
     return (
-        <div className='header'>
+        <StyledHeader className='header'>
             <h1>NASA's Pic of the Day. WAU!</h1>
-            <h2>{title}</h2>
-        </div>
+        </StyledHeader>
     )
 }
 
